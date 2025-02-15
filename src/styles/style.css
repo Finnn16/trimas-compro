@@ -6,8 +6,7 @@
 
 @font-face {
     font-family: 'Futura';
-    src: url("../assets/fonts/futura/futura/Futura-Bold.ttf") format("truetype"),
-    url("../assets/fonts/futura/futura/Futura-Heavy.ttf") format("truetype");
+    src: url("../assets/fonts/futura/futura/Futura-Bold.ttf") format("truetype");
     font-weight: bold;
 }
 @font-face {
@@ -29,6 +28,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+body {
+    overflow-x: hidden;
 }
 .nav-link{
     font-family: "Futura", serif;
@@ -61,7 +63,6 @@ h2 {
     padding: 20px;
 }
 
-
 .feature-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -74,7 +75,7 @@ h2 {
     position: relative; 
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: auto;
@@ -82,7 +83,7 @@ h2 {
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
 }
 
 .feature-card .icon {
@@ -124,6 +125,32 @@ h2 {
     padding: 60px 0;
     overflow-x: hidden;
     white-space: nowrap;
+    position: relative;
+}
+
+.logos:before,
+.logos:after {
+    position: absolute;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+}
+
+.logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255,255,255, 0), white);
+}
+.logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255,255,255, 0), white);
+}
+
+#brand{
+    font-family: 'MDPrimer', serif;
+    font-size: 6.6rem;
+    margin: 10px;
 }
 
 .logos:hover .logos-slide {
@@ -131,7 +158,6 @@ h2 {
 }
 
 .logos-slide {
-    
     display: inline-block;
     animation: 9s slide infinite linear;
 }
@@ -141,6 +167,51 @@ h2 {
     height: auto;
     width: 130px;
     margin: 0 40px;
+}
+
+.brand-desk {
+    font-family: 'Futura', serif;
+    font-size: 1.3rem;
+}
+
+.prod {
+    max-width: 1440px;
+}
+
+.content-prod {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    border-style: solid;
+    border-width: 4px;
+}
+.content-prod #item1{
+    position: relative;
+    grid-column: 1;
+    border-style: hidden solid hidden hidden;
+    border-width: 2px;
+}
+.content-prod #item p{
+    position: absolute;
+    top: 200px;
+}
+.content-prod #item2{
+    grid-column: 2;
+    border-style: hidden solid hidden hidden;
+    border-width: 2px;
+}
+.content-prod #item3{
+    grid-column: 3;
+    border-style: hidden solid hidden hidden;
+    border-width: 2px;
+}
+.content-prod #item4{
+    grid-column: 4;
+    border-style: hidden solid hidden hidden;
+    border-width: 2px;
+}
+.content-prod #item5{
+    grid-column: 5;
+    
 }
 
 
@@ -177,5 +248,35 @@ h2 {
         height: 80px;
         width: 130px;
         margin: 0 40px;
+    }
+    .logos p {
+        font-size: 2rem;
+    }
+}
+/* IPAD CUY JAGA JAGA */
+@media (max-width: 1401px) and (min-width: 768px) {
+    .feature-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  /* Membuat kolom yang responsif */
+        gap: 20px; /* Memberi jarak antar kolom */
+        justify-items: center; /* Menyusun elemen di tengah */
+        padding: 20px;
+    }
+    
+    .feature-card {
+        position: relative;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    .feature-card img {
+        max-width: 100%;
+        height: auto;
+    }
+    .logos p {
+        font-size: 4rem;
     }
 }
