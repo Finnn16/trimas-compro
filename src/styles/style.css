@@ -174,30 +174,39 @@ h2 {
     font-size: 1.3rem;
 }
 
+/* KONTEN PRODUKSI */
 .prod {
     max-width: 1440px;
 }
-
 .content-prod {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: repeat(6, 1fr);
     border-style: solid;
     border-width: 4px;
+    width: auto;
+    height: auto;
+    background-color: rgb(248, 245, 245);
 }
 .content-prod #item1{
     position: relative;
     grid-column: 1;
     border-style: hidden solid hidden hidden;
     border-width: 2px;
-}
-.content-prod #item p{
-    position: absolute;
-    top: 200px;
+    width: 180px;
 }
 .content-prod #item2{
+    position: relative;
     grid-column: 2;
     border-style: hidden solid hidden hidden;
     border-width: 2px;
+}
+.content-prod #item2 p{
+    position: relative;
+    top: 300px;
+}
+.content-prod #item2 img{
+    position: relative;
+    top: 300px;
 }
 .content-prod #item3{
     grid-column: 3;
@@ -208,10 +217,36 @@ h2 {
     grid-column: 4;
     border-style: hidden solid hidden hidden;
     border-width: 2px;
+    width: 250px;
+}
+.content-prod #item4 .count-up{
+    position: relative;
+    top: 350px;
 }
 .content-prod #item5{
     grid-column: 5;
-    
+    border-style: hidden solid hidden hidden;
+    border-width: 2px;
+}
+.content-prod #item6{
+    grid-column: 6; 
+}
+
+.counter {
+    font-size: 80px;
+    font-weight: bold;
+    color: #073771;
+    margin: 0;
+    transition: all 0.5s ease-out;
+    text-align: center;
+    padding: 20px;
+}
+.count-up p {
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 0;
+    text-align: center;
+    padding: 5px;
 }
 
 

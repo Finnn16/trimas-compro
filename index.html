@@ -136,26 +136,97 @@
     <div class="container prod">
         <div class="content-prod mt-5">
             <div class="content-card" id="item1">
-                <p style="margin: 10px;">Since 1992</p>
-                <p style="margin: 10px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor fuga natus nisi ex repellendus ea beatae doloribus reiciendis, accusantium asperiores perferendis minima inventore eum ullam voluptate ut sed ipsum laboriosam?</p>
+                <p style="margin: 10px; font-weight: bold; font-size: 1.8rem; font-family: 'MDPrimer';">Since 1992</p>
+                <p style="margin: 10px; font-family: 'Futura';">Established in 1992, our company has amassed decades of experience, making us highly reliable and trustworthy in the industry. Our long-standing presence is a testament to our commitment to quality and excellence.</p>
             </div>
             <div class="content-card" id="item2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet vel excepturi laudantium consequuntur ab ut, tempore deleniti fuga asperiores ipsum facere voluptatem ipsam distinctio nostrum. Libero assumenda aut eligendi sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad accusantium dolorem eum placeat consequatur a iure accusamus, eius incidunt at totam et tenetur repellendus, beatae sunt sed vel mollitia suscipit?</p>
+                <img src="src/assets/img/Mesin.webp" class="img-fluid" alt="Mesin Jahit Juki">
+                <p class="p-2">We use Juki sewing machines, renowned as one of the best and most famous sewing machines in the industry. The results are guaranteed to be satisfactory.</p>
             </div>
             <div class="content-card" id="item3">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet vel excepturi laudantium consequuntur ab ut, tempore deleniti fuga asperiores ipsum facere voluptatem ipsam distinctio nostrum. Libero assumenda aut eligendi sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad accusantium dolorem eum placeat consequatur a iure accusamus, eius incidunt at totam et tenetur repellendus, beatae sunt sed vel mollitia suscipit?</p>
+                <img src="src/assets/img/blazer.png" class="img-fluid" alt="">
+                <img src="src/assets/img/tshirt.png" class="img-fluid" alt="">
+                <img src="src/assets/img/Pants.png" class="img-fluid" alt="">
             </div>
             <div class="content-card" id="item4">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet vel excepturi laudantium consequuntur ab ut, tempore deleniti fuga asperiores ipsum facere voluptatem ipsam distinctio nostrum. Libero assumenda aut eligendi sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad accusantium dolorem eum placeat consequatur a iure accusamus, eius incidunt at totam et tenetur repellendus, beatae sunt sed vel mollitia suscipit?</p>
+                <div class="count-up">
+                    <h1 class="counter" id="count-01">0</h1>
+                    <p>Lines</p>
+                    <p>We proudly operate 6 advanced sewing lines, ready to produce your garments with the highest quality standards. Our state-of-the-art equipment and skilled workforce ensure that every piece meets your expectations, delivering excellence in every stitch.</p>
+                </div>
+                <!-- <div class="count-up">
+                    <h1 class="counter" id="count-02">0</h1>
+                    <p>Skilled Employees</p>
+                </div>
+                <div class="count-up">
+                    <h1 class="counter" id="count-03">0</h1>
+                    <p>Garments/Month</p>
+                </div> -->
             </div>
             <div class="content-card" id="item5">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet vel excepturi laudantium consequuntur ab ut, tempore deleniti fuga asperiores ipsum facere voluptatem ipsam distinctio nostrum. Libero assumenda aut eligendi sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad accusantium dolorem eum placeat consequatur a iure accusamus, eius incidunt at totam et tenetur repellendus, beatae sunt sed vel mollitia suscipit?</p>
             </div>
+            <div class="content-card" id="item">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet vel excepturi laudantium consequuntur ab ut, tempore deleniti fuga asperiores ipsum facere voluptatem ipsam distinctio nostrum. Libero assumenda aut eligendi sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad accusantium dolorem eum placeat consequatur a iure accusamus, eius incidunt at totam et tenetur repellendus, beatae sunt sed vel mollitia suscipit?</p>
+            </div>
         </div>
+        <br><br><br><br><br>
     </div>
     <!-- ------------------------------SCRIPT--------------------------------- -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="src/scripts/index.js"></script>
+    <script>
+        function countUp(counter, target) {
+        let end = target;
+        let duration = 1500;
+        let startTime = null;
 
+        function animate(timestamp) {
+            if (!startTime) startTime = timestamp; // Menyimpan waktu awal animasi
+            let progress = timestamp - startTime; // Hitung waktu yang telah berlalu
+            let current = Math.min(Math.floor(progress / duration * end), end); // Hitung angka yang ditampilkan
+            counter.textContent = current; // Update angka yang ditampilkan
+
+            if (progress < duration) {
+            requestAnimationFrame(animate); // Lanjutkan animasi jika durasi belum tercapai
+            }
+        }
+
+        // Mulai animasi dengan requestAnimationFrame
+        requestAnimationFrame(animate);
+        }
+
+        // Intersection Observer untuk memantau apakah elemen terlihat di viewport
+        const counters = document.querySelectorAll('.counter');
+
+        // Fungsi untuk menangani observer
+        function handleIntersection(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = counter.getAttribute('data-target');
+            countUp(counter, target);
+            observer.unobserve(counter); // Hentikan observasi setelah animasi dimulai
+            }
+        });
+        }
+
+        // Menambahkan observer untuk setiap counter
+        const observerOptions = {
+        threshold: 0.5 // Elemen harus terlihat 50% untuk mulai dihitung
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+        counters.forEach(counter => {
+        observer.observe(counter);
+        });
+
+        // Set target untuk masing-masing counter di JavaScript
+        document.getElementById('count-01').setAttribute('data-target', '6');
+        document.getElementById('countup2').setAttribute('data-target', '1500000');
+        document.getElementById('countup3').setAttribute('data-target', '300000');
+
+    </script>
 </body>
 </html>
