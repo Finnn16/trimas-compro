@@ -44,7 +44,7 @@ observer.observe(counter);
 
 document.getElementById('count-01').setAttribute('data-target', '6');
 document.getElementById('count-02').setAttribute('data-target', '1000');
-document.getElementById('countup3').setAttribute('data-target', '300000');
+document.getElementById('countup3').setAttribute('data-target', '90000');
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js').then((registration) => {
