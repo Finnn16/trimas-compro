@@ -7,25 +7,21 @@ function countUp(counter, target) {
     let startTime = null;
 
     function animate(timestamp) {
-        if (!startTime) startTime = timestamp; // Menyimpan waktu awal animasi
-        let progress = timestamp - startTime; // Hitung waktu yang telah berlalu
-        let current = Math.min(Math.floor(progress / duration * end), end); // Hitung angka yang ditampilkan
-        counter.textContent = current; // Update angka yang ditampilkan
+        if (!startTime) startTime = timestamp;
+        let progress = timestamp - startTime;
+        let current = Math.min(Math.floor(progress / duration * end), end); 
+        counter.textContent = current; 
 
         if (progress < duration) {
-        requestAnimationFrame(animate); // Lanjutkan animasi jika durasi belum tercapai
+        requestAnimationFrame(animate);
         }
     }
 
-    // Mulai animasi dengan requestAnimationFrame
     requestAnimationFrame(animate);
-    }
+}
+const counters = document.querySelectorAll('.counter');
 
-    // Intersection Observer untuk memantau apakah elemen terlihat di viewport
-    const counters = document.querySelectorAll('.counter');
-
-    // Fungsi untuk menangani observer
-    function handleIntersection(entries, observer) {
+function handleIntersection(entries, observer) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
         const counter = entry.target;
@@ -34,20 +30,26 @@ function countUp(counter, target) {
         observer.unobserve(counter); // Hentikan observasi setelah animasi dimulai
         }
     });
-    }
+}
 
-    // Menambahkan observer untuk setiap counter
-    const observerOptions = {
+const observerOptions = {
     threshold: 0.5 // Elemen harus terlihat 50% untuk mulai dihitung
-    };
+};
 
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+const observer = new IntersectionObserver(handleIntersection, observerOptions);
 
-    counters.forEach(counter => {
-    observer.observe(counter);
+counters.forEach(counter => {
+observer.observe(counter);
+});
+
+document.getElementById('count-01').setAttribute('data-target', '6');
+document.getElementById('count-02').setAttribute('data-target', '1000');
+document.getElementById('countup3').setAttribute('data-target', '300000');
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js').then((registration) => {
+        console.log('Service Worker registered with scope:', registration.scope);
+    }).catch((error) => {
+        console.log('Service Worker registration failed:', error);
     });
-
-    // Set target untuk masing-masing counter di JavaScript
-    document.getElementById('count-01').setAttribute('data-target', '6');
-    document.getElementById('count-02').setAttribute('data-target', '1000');
-    document.getElementById('countup3').setAttribute('data-target', '300000');
+}
