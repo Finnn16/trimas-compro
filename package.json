@@ -18,5 +18,8 @@
   "description": "",
   "dependencies": {
     "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "uglifycss": "^0.0.29"
   }
 }
