@@ -44,7 +44,35 @@ body {
     font-family: 'IBM Plex Serif', serif;
     font-weight: 600;
 }
-
+.wlc-container {
+    display: flex;
+    gap: 20px;
+    pad: 0;
+}
+.image-container {
+    flex: 1;
+    max-width: 80%;
+}
+.text-container {
+    flex: 2;
+    max-width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.text-container #heading {
+    font-family: "IBM Plex Serif";
+    font-size: 55px;
+    font-weight: 500;
+}
+.text-container #description {
+    font-size: 18px;
+}
+.image-container img {
+    width: 100%; /* Ensure the image fills the container width */
+    height: auto;
+    display: block;
+}
 h2 {
     text-align: center;
     font-size: 2.5rem;
@@ -140,7 +168,7 @@ h2 {
     z-index: 2;
     color: black;
 }
-
+/* --------------------------------------------------------DISPLAY LOGO-------------------------------------------------------------- */
 .logos {
     padding: 60px 0;
     overflow-x: hidden;
@@ -193,6 +221,7 @@ h2 {
     font-family: 'IBM Plex Serif', serif;
     font-size: 1.3rem;
 }
+/* -----------------------------------------------------END DISPLAY LOGO------------------------------------------------------------- */
 /* --------------------------------------------------------------CIRCLE-------------------------------------------------------------- */
 
 
@@ -418,6 +447,18 @@ h2 {
 }
 /* MOBILE */
 @media (max-width: 767px) {
+    .wlc-container {
+        flex-direction: column;
+    }
+    .image-container {
+        max-width: 100%;
+    }
+    .text-container {
+        max-width: 100%;
+    }
+    .text-container #heading {
+        font-size: 35px;
+    }
     body{
         overflow-x: hidden;
     }
@@ -442,14 +483,33 @@ h2 {
     .logos p {
         font-size: 2rem;
     }
+    #brand{
+        font-family: 'MDPrimer', serif;
+        font-size: 3rem;
+        margin: 5px;
+    }
+    .logos:before,
+    .logos:after {
+        position: absolute;
+        top: 0;
+        width: 120px;
+        height: 100%;
+        content: "";
+        z-index: 2;
+    }
+    /* PROD */
+    .content-prod{
+        grid-template-rows: 6;
+    }
+    /* END PROD */
 }
 /* IPAD CUY JAGA JAGA */
 @media (max-width: 1401px) and (min-width: 768px) {
     .feature-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  /* Membuat kolom yang responsif */
-        gap: 20px; /* Memberi jarak antar kolom */
-        justify-items: center; /* Menyusun elemen di tengah */
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  
+        gap: 20px; 
+        justify-items: center; 
         padding: 20px;
     }
     
@@ -468,5 +528,33 @@ h2 {
     }
     .logos p {
         font-size: 4rem;
+    }
+    .feature-card {
+        position: relative; 
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: auto;
+    }
+    .text-head {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .wlc-container {
+        flex-direction: column;
+    }
+    .image-container {
+        max-width: 100%;
+    }
+    .text-container {
+        max-width: 100%;
+    }
+    .text-container #heading {
+        font-size: 46px;
+    }
+    .text-container #description {
+        font-size: 26px;
     }
 }
