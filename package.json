@@ -1,0 +1,26 @@
+{
+  "name": "trimas-compro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Finnn16/trimas-compro.git"
+  },
+  "author": "Harfin Taufik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Finnn16/trimas-compro/issues"
+  },
+  "homepage": "https://github.com/Finnn16/trimas-compro#readme",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "motion": "^12.4.7"
+  },
+  "devDependencies": {
+    "uglifycss": "^0.0.29"
+  }
+}

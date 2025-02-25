@@ -1,0 +1,103 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.banner-head {
+    font-size: 80px;
+    font-weight: 600;
+}
+.banner-head #date {
+    font-size: 15px;
+}
+.banner-img {
+    width: 760px;
+    height: auto;
+}
+.banner-img img{
+    width: 100%;
+    height: fit-content;
+}
+
+
+@media (max-width: 767px) {
+    .banner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .banner-head {
+        font-size: 1.5rem;
+        font-family: Montserrat;
+    }
+    .banner-info {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+    .banner-head #author {
+        padding: 5px;
+        font-size: 11px;
+        color: white;
+        background-color: rgb(30, 29, 29);
+        width: fit-content;
+        text-align: center;
+        border-radius: 15px;
+    }   
+    .banner-head #date {
+        padding: 5px;
+        font-size: 11px;
+        background-color: lightgray;
+        width: fit-content;
+        text-align: center;
+        border-radius: 15px;
+    }   
+    .banner-img {
+        margin: 10px;
+        width: auto;
+        height: auto;
+    }
+    .banner-img img{
+        width: 100%;
+        height: fit-content;
+    }
+    label {
+        font-size: 1.1em;
+    }
+    select {
+        font-size: 1em;
+        padding: 5px;
+        margin: 10px 0;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+    }
+    .article {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin-top: 20px;
+    }
+    article p {
+    font-family: "Arial", sans-serif;
+    }
+    #img-1 {
+        width: 100%;
+        height: auto;
+    }
+}
