@@ -1,24 +1,45 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Mengambil elemen dropdown dan artikel
-    const fontSelect = document.getElementById('font-select');
-    const article = document.querySelector('.article');
-
-    // Mengecek apakah ada preferensi font yang disimpan di LocalStorage
-    const savedFont = localStorage.getItem('selectedFont');
-    if (savedFont) {
-    // Jika ada, terapkan font yang disimpan
-    article.style.fontFamily = savedFont;
-    fontSelect.value = savedFont; // Menyesuaikan dropdown dengan font yang dipilih
+document.addEventListener("DOMContentLoaded", function() {
+    // Tombol toggle
+    const fontToggle = document.getElementById("font-toggle");
+    const fontMenu = document.getElementById("font-menu");
+    
+    // Cek apakah elemen fontToggle dan fontMenu ada
+    if (!fontToggle || !fontMenu) {
+        console.log("Elemen tidak ditemukan!");
+        return;
     }
 
-    // Menambahkan event listener pada dropdown untuk mengubah font
-    fontSelect.addEventListener('change', function() {
-    const selectedFont = fontSelect.value;
+    // Toggle menu saat tombol diklik
+    fontToggle.addEventListener("click", function(e) {
+        e.stopPropagation(); // Mencegah event bubbling
+        fontMenu.classList.toggle("active");
+    });
     
-    // Mengubah font artikel sesuai pilihan pengguna
-    article.style.fontFamily = selectedFont;
-
-    // Menyimpan pilihan font pengguna di LocalStorage
-    localStorage.setItem('selectedFont', selectedFont);
+    // Pilihan font
+    const fontOptions = document.querySelectorAll(".font-option");
+    const articleContent = document.getElementById("article-content");
+    
+    fontOptions.forEach(option => {
+        option.addEventListener("click", function() {
+            // Hapus kelas aktif dari semua opsi
+            fontOptions.forEach(opt => opt.classList.remove("active"));
+            
+            // Tambahkan kelas aktif ke opsi yang dipilih
+            this.classList.add("active");
+            
+            // Terapkan font ke artikel
+            const selectedFont = this.getAttribute("data-font");
+            articleContent.style.fontFamily = selectedFont;
+            
+            // Tutup menu
+            fontMenu.classList.remove("active");
+        });
+    });
+    
+    // Tutup menu saat klik di luar
+    document.addEventListener("click", function(e) {
+        if (!fontToggle.contains(e.target) && !fontMenu.contains(e.target)) {
+            fontMenu.classList.remove("active");
+        }
     });
 });

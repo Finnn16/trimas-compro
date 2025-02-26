@@ -75,10 +75,76 @@
     label {
         font-size: 1.1em;
     }
-    select {
-        font-size: 1em;
+    .font-control {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 100;
+    }
+    .font-button {
+        width: 48px;
+        height: 48px;
+        border-radius: 24px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .font-button::before {
+        content: "F";
+        font-size: 24px;
+        font-weight: bold;
+        color: black;
+    }
+    .font-button:hover {
+        transform: scale(1.05);
+        background-color: #ebeef3;
+    }
+    .font-menu {
+        position: absolute;
+        bottom: 60px;
+        right: 0;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+        width: 180px;
         padding: 5px;
-        margin: 10px 0;
+        transform: scale(0.95);
+        transform-origin: bottom right;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+    }
+    .font-menu.active {
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+    }
+    .font-menu-header {
+        padding: 12px 15px 8px;
+        color: #555;
+        font-weight: 500;
+        font-size: 14px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .font-option {
+        padding: 12px 15px;
+        cursor: pointer;
+        transition: background-color 0.15s;
+        border-radius: 8px;
+        margin: 3px;
+        font-size: 14px;
+    }
+    .font-option:hover {
+        background-color: #f7f7f7;
+    }
+    .font-option.active {
+        background-color: #f0f5ff;
+        color: #3d73dd;
     }
     .content {
         display: flex;
