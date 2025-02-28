@@ -43,3 +43,28 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// Intersection Observer to detect visibility
+document.addEventListener('DOMContentLoaded', function () {
+    const catalogItems = document.querySelectorAll('.catalog-item');
+
+    // Observer to trigger animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible'); // Trigger slide-in when visible
+            }
+        });
+    }, {
+        threshold: 0.5, // Trigger when at least 50% of the item is in view
+    });
+
+    // Observe each catalog item
+    catalogItems.forEach(item => {
+        observer.observe(item);
+    });
+});
+
+
+
+

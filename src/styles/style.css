@@ -319,6 +319,51 @@ h2 {
     padding: 2px;
 }
 /* ------------------------------------------------------ END KONTEN PRODUKSI ------------------------------------------------------- */
+.animated-button {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    background-color: #073771;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+}
+
+/* Inner glow effect */
+.animated-button:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Button Hover Effects */
+.animated-button:hover {
+    background-color: #f3a90b;
+    box-shadow: 0 8px 25px rgba(239, 178, 11, 0.881);
+    transform: scale(1.1);
+}
+
+.animated-button:hover:before {
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.animated-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 3px 10px rgba(46, 204, 113, 0.4);
+}
 /* ---------------------------------------------------------- News ------------------------------------------------------------------ */
 .card-container {
     display: flex;

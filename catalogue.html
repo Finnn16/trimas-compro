@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Catalogue with Animation</title>
+    <link rel="stylesheet" href="src/styles/catalogue.css">
+</head>
+<body>
+    <div class="catalogue-container">
+        <section class="catalogue-item" id="catalogue-item-1">
+            <div class="text-container">
+                <h1 class="catalog-title">FORMAL WEAR</h1>
+                <p class="catalog-description">Precision-crafted formal wear. Our factory specializes in producing high-quality garments, meticulously tailored to meet the exacting standards of our clients.</p>
+            </div>
+            <img src="src/assets/img/Catalog/blazer-3-full-B.jpg" alt="Product 1" class="catalog-image">
+        </section>
+
+        <section class="catalogue-item" id="catalogue-item-2">
+            <div class="text-container">
+                <p class="catalog-description">"CLEAN"</p>
+            </div>
+            <img src="src/assets/img/Catalog/jobb-blazer.webp" alt="Product 2" class="catalog-image">
+        </section>
+
+        <section class="catalogue-item" id="catalogue-item-3">
+            <div class="text-container">
+                <p class="catalog-description">DETAIL</p>
+            </div>
+            <img src="src/assets/img/Catalog/blazer-3-detail.jpg" alt="Product 3" class="catalog-image">
+        </section>
+
+        <section class="catalogue-item" id="catalogue-item-4">
+            <img src="src/assets/img/Catalog/pants-2.jpg" alt="Product 3" class="catalog-image">
+        </section>
+
+        <section class="catalogue-item" id="catalogue-item-5">
+            <div class="text-container">
+                <p class="catalog-description">PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION</p>
+            </div>
+            <img src="src/assets/img/Catalog/blazer-5-trans.png" alt="Product 3" class="catalog-image">
+        </section>
+
+        <!-- --------------------------------- CASUAL WEAR ---------------------------------------- -->
+
+        <section class="catalogue-item" id="catalogue-item-3">
+            <div class="text-container">
+                <p class="catalog-description">DETAIL</p>
+            </div>
+            <img src="src/assets/img/Catalog/tshirt-2.jpg" alt="Product 3" class="catalog-image">
+        </section>
+
+    </div>
+    <script src="src/scripts/"></script>
+    <script>
+        function onIntersection(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible'); 
+                } else {
+                    entry.target.classList.remove('visible'); 
+                }
+            });
+        }
+
+        const options = {
+            root: null, 
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver(onIntersection, options);
+
+        const catalogueItems = document.querySelectorAll('.catalogue-item');
+
+        catalogueItems.forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
