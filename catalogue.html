@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Catalogue with Animation</title>
     <link rel="stylesheet" href="src/styles/catalogue.css">
+    <script>
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!isMobileDevice()) {
+                document.body.innerHTML = `
+                    <div class="desktop-warning">
+                    <div class="warning-icon">⚠️</div>
+                    <h1 class="warning-title">Akses Terbatas</h1>
+                    <p class="warning-text">Mohon maaf, halaman ini saat ini hanya tersedia untuk perangkat mobile.</p>
+                    <p class="warning-text">Silakan scan QR code berikut dengan smartphone Anda atau kunjungi kembali menggunakan perangkat mobile.</p>
+                    
+                    <div class="qr-container">
+                        <p>Scan untuk mengakses:</p>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${window.location.href}" alt="QR Code" />
+                    </div>
+                `;
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="catalogue-container">
@@ -38,16 +59,16 @@
             <div class="text-container">
                 <p class="catalog-description">PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION</p>
             </div>
-            <img src="src/assets/img/Catalog/blazer-5-trans.png" alt="Product 3" class="catalog-image">
+            <img src="src/assets/img/Catalog/blazer-5-trans.png" alt="Product 5" class="catalog-image">
         </section>
 
-        <!-- --------------------------------- CASUAL WEAR ---------------------------------------- -->
-
-        <section class="catalogue-item" id="catalogue-item-3">
+        <!-- --------------------------------- GOLF WEAR ---------------------------------------- -->
+        
+        <section class="catalogue-item" id="catalogue-item-6">
             <div class="text-container">
-                <p class="catalog-description">DETAIL</p>
+                <p class="catalog-description">JACK NICKLAUS</p>
             </div>
-            <img src="src/assets/img/Catalog/tshirt-2.jpg" alt="Product 3" class="catalog-image">
+            <img src="src/assets/img/Catalog/JN-4-Trans.png" alt="Product 6" class="catalog-image">
         </section>
 
     </div>
